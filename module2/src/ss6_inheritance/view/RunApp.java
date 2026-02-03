@@ -1,11 +1,10 @@
 package ss6_inheritance.view;
 
-import ss6_inheritance.controller.ControllerCodegym;
-import ss6_inheritance.controller.StudentController;
+import ss6_inheritance.controller.CodegymController;
 
 public class RunApp {
     public static void main(String[] args) {
-        ControllerCodegym controllerCodegym = new ControllerCodegym();
+        CodegymController controllerCodegym = new CodegymController();
         controllerCodegym.displayMenu();
     }
 }

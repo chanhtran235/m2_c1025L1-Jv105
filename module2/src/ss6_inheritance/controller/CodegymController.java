@@ -1,11 +1,8 @@
 package ss6_inheritance.controller;
 
-import ss6_inheritance.entity.Student;
-import ss6_inheritance.view.StudentView;
-
 import java.util.Scanner;
 
-public class ControllerCodegym {
+public class CodegymController {
     public void displayMenu() {
         final int STUDENT = 1;
         final int INSTRUCTOR = 2;
