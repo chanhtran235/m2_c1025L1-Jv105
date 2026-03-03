@@ -1,8 +1,15 @@
 package ss6_inheritance.entity;
 
-public class Student extends Person {
+public class Student extends Person implements Comparable<Student> {
     private float score;
 
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
     public Student() {
     }
 
@@ -14,13 +21,9 @@ public class Student extends Person {
         super(id, name, address);
         this.score = score;
     }
-
-    public float getScore() {
-        return score;
-    }
-
-    public void setScore(float score) {
-        this.score = score;
+    @Override
+    public String getInfoToCSV() {
+        return this.getId()+","+this.getName()+","+this.getAddress()+","+this.getScore();
     }
 
     @Override
@@ -30,5 +33,14 @@ public class Student extends Person {
                 " score=" + score +
                 '}';
     }
+
+    @Override
+    public int compareTo(Student o) {
+        if (this.getId()==o.getId()){
+            return this.getName().compareTo(o.getName());
+        }
+        return this.getId()-o.getId();
+    }
+
 }
 

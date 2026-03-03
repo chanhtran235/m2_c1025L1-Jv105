@@ -2,10 +2,12 @@ package ss6_inheritance.repository;
 
 import ss6_inheritance.entity.Instructor;
 
+import java.util.List;
+
 public class InstructorRepository implements IInstructorRepository{
     @Override
-    public Instructor[] findAll() {
-        return new Instructor[0];
+    public List<Instructor> findAll() {
+        return null;
     }
 
     @Override

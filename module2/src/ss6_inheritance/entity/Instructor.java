@@ -6,6 +6,12 @@ public class Instructor extends Person {
     public Instructor() {
 
     }
+
+    @Override
+    public String getInfoToCSV() {
+        return "";
+    }
+
     public Instructor(int id, String name, String address, double salary) {
         super(id, name, address);
         this.salary = salary;

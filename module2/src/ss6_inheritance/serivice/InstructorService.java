@@ -4,10 +4,12 @@ import ss6_inheritance.entity.Instructor;
 import ss6_inheritance.repository.IInstructorRepository;
 import ss6_inheritance.repository.InstructorRepository;
 
+import java.util.List;
+
 public class InstructorService implements IInstructorService{
     private IInstructorRepository instructorRepository = new InstructorRepository();
     @Override
-    public Instructor[] findAll() {
+    public List<Instructor> findAll() {
         return instructorRepository.findAll();
     }
 

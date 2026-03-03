@@ -1,15 +1,16 @@
-package ss6_inheritance.entity;
+package ss10;
 
-public abstract class Person {
+import java.util.Objects;
+
+public class Student implements Comparable<Student> {
     private int id;
     private String name;
     private String address;
 
-    public Person() {
-
+    public Student() {
     }
 
-    public Person(int id, String name, String address) {
+    public Student(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -39,13 +40,29 @@ public abstract class Person {
         this.address = address;
     }
 
-    public abstract String getInfoToCSV();
+
+    @Override
+    public boolean equals(Object o) {
+        Student student = ((Student)o);
+//        return this.id ==student.getId()&&this.name.equals(student.getName());
+        return this.id ==student.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     @Override
     public String toString() {
-        return
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name +
-                ", address='" + address;
+                '}';
+    }
+
+    @Override
+    public int compareTo(Student o) {
+        return o.id-this.id;
     }
 }

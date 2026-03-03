@@ -30,9 +30,7 @@ public class InstructorController {
             switch (choose) {
                 case DISPLAY:
                     // goi servcie để lấy dữ liệu
-                    Instructor[] instructors = instructorService.findAll();
                     // gọi View để hiển thị
-                    InstructorView.displayInstructorList(instructors);
                     break;
                 case ADD:
                     // goi view để nhập dữ liệu

@@ -5,6 +5,7 @@ import ss6_inheritance.entity.Student;
 import java.util.List;
 
 public interface IStudentService {
-    Student[] findAll();
+    List<Student> findAll();
     void add(Student student);
+    boolean deleteById(int id);
 }

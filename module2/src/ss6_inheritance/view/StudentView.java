@@ -3,17 +3,14 @@ package ss6_inheritance.view;
 
 import ss6_inheritance.entity.Student;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void displayStudentList(Student[] students){
-        for (int i = 0; i <students.length ; i++) {
-            if (students[i]!=null){
-                System.out.println(students[i]);
-            }else {
-                break;
-            }
+    public static void displayStudentList(List<Student> students){
+        for (int i = 0; i <students.size() ; i++) {
+                System.out.println(students.get(i));
         }
     }
 
@@ -28,5 +25,9 @@ public class StudentView {
         float score = Float.parseFloat(scanner.nextLine());
         Student student = new Student(id,name,address,score);
         return student;
+    }
+    public static int inputId(){
+        System.out.println("Nhập id cần xoá");
+        return Integer.parseInt(scanner.nextLine());
     }
 }

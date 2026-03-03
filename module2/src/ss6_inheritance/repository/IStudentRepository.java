@@ -2,8 +2,8 @@ package ss6_inheritance.repository;
 
 import ss6_inheritance.entity.Student;
 
-public interface IStudentRepository {
+import java.util.List;
 
-    Student[] findAll();
-    void add(Student student);
+public interface IStudentRepository extends IRepository<Student> {
+    boolean deleteById(int id);
 }

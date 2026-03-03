@@ -5,6 +5,7 @@ import ss6_inheritance.serivice.IStudentService;
 import ss6_inheritance.serivice.StudentService;
 import ss6_inheritance.view.StudentView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class StudentController {
@@ -29,7 +30,7 @@ public class StudentController {
             switch (choose) {
                 case DISPLAY:
                     // goi servcie để lấy dữ liệu
-                    Student[] students = studentService.findAll();
+                    List<Student> students = studentService.findAll();
                     // gọi View để hiển thị
                     StudentView.displayStudentList(students);
                     break;
@@ -41,7 +42,14 @@ public class StudentController {
                     System.out.println("Thêm mới thành công");
                     break;
                 case DELETE:
-                    System.out.println("Đây là chức năng xoá");
+                   // nhập id cần xoá
+                    int deleteId =  StudentView.inputId();
+                    boolean isDelete = studentService.deleteById(deleteId);
+                    if (isDelete){
+                        System.out.println("Xoá thành công");
+                    }else {
+                        System.out.println("Không tìm thấy id");
+                    }
                     break;
                 case SEARCH:
                     System.out.println("Đây là chức năng tìm kiếm");
