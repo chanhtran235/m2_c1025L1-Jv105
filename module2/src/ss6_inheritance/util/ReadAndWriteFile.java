@@ -1,5 +1,8 @@
 package ss6_inheritance.util;
 
+import ss6_inheritance.entity.Student;
+
+import javax.sound.midi.Soundbank;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,5 +41,39 @@ public class ReadAndWriteFile {
             System.out.println("Lỗi ghi file");
         }
         return stringList;
+    }
+
+    // ghi file nhị phân
+    public  static void writeListStudentToBinaryFile(String filePath, List<Student> studentList){
+        File file = new File(filePath);
+        try(FileOutputStream fileOutputStream = new FileOutputStream(file);
+           ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)
+        ) {
+            objectOutputStream.writeObject(studentList);
+        } catch (FileNotFoundException e) {
+            System.out.println("Không tìm thấy file");
+        } catch (IOException e) {
+            System.out.println("Lỗi ghi file");
+        }
+    }
+
+    public  static List<Student> readBinaryFileToListStudent(String filePath){
+        File file = new File(filePath);
+        List<Student> studentList = new ArrayList<>();
+        if (file.length()>0){
+            try(FileInputStream fileInputStream = new FileInputStream(file);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)
+            ) {
+
+                studentList = (List<Student>)objectInputStream.readObject();
+            } catch (FileNotFoundException e) {
+                System.out.println("Không tìm thấy file");
+            } catch (IOException e) {
+                System.out.println("Lỗi ghi file");
+            } catch (ClassNotFoundException e) {
+                System.out.println("Không tìm thấy class");
+            }
+        }
+        return studentList;
     }
 }

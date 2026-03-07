@@ -2,6 +2,7 @@ package ss6_inheritance.view;
 
 
 import ss6_inheritance.entity.Student;
+import ss6_inheritance.validate.Validation;
 
 import java.util.List;
 import java.util.Scanner;
@@ -19,6 +20,13 @@ public class StudentView {
         int id = Integer.parseInt(scanner.nextLine());
         System.out.println("Nhập tên");
         String name = scanner.nextLine();
+
+        String email;
+        do {
+            System.out.println("Nhập Email");
+            email = scanner.nextLine();
+        }while (!Validation.validateEmail(email));
+
         System.out.println("Nhập địa chỉ");
         String address = scanner.nextLine();
         System.out.println("Nhập điểm");

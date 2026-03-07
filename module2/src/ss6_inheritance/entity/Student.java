@@ -1,7 +1,18 @@
 package ss6_inheritance.entity;
 
+import java.io.Serializable;
+
 public class Student extends Person implements Comparable<Student> {
     private float score;
+    private String Email;
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 
     public float getScore() {
         return score;
