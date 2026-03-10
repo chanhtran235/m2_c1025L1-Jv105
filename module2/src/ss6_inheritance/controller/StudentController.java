@@ -36,9 +36,7 @@ public class StudentController {
                     break;
                 case ADD:
                     // goi view để nhập dữ liệu
-                   Student student = StudentView.inputDataForStudent();
-                   // goi service để thêm mới
-                    studentService.add(student);
+
                     System.out.println("Thêm mới thành công");
                     break;
                 case DELETE:
